@@ -1,16 +1,16 @@
-package com.coronetti.agendadigital.ui.slideshow;
+package com.coronetti.agendadigital.ui.comunicacao;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class ComunicacaoViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public ComunicacaoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is home fragment");
     }
 
     public LiveData<String> getText() {

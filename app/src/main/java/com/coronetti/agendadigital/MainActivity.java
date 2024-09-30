@@ -3,6 +3,7 @@ package com.coronetti.agendadigital;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -37,17 +38,39 @@ public class MainActivity extends AppCompatActivity {
                         .setAnchorView(R.id.fab).show();
             }
         });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        // Definindo as IDs para incluir a nova HomeFragment
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_comunicacao, R.id.nav_tarefas, R.id.nav_informacoes)
                 .setOpenableLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        // Adicionar o listener para os itens do NavigationView
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                // Aqui gerenciamos a navegação
+                int id = item.getItemId();
+                if (id == R.id.nav_home) {
+                    navController.navigate(R.id.nav_home); // Navegar para o HomeFragment
+                } else if (id == R.id.nav_mural) {
+                    navController.navigate(R.id.nav_mural); // Navegar para o MuralFragment
+                } else if (id == R.id.nav_tarefas) {
+                    navController.navigate(R.id.nav_tarefas); // Navegar para TarefasFragment
+                } else if (id == R.id.nav_informacoes) {
+                    navController.navigate(R.id.nav_informacoes); // Navegar para InformacoesFragment
+                }
+                binding.drawerLayout.closeDrawers(); // Fechar o Navigation Drawer
+                return true;
+            }
+        });
     }
 
     @Override
@@ -62,5 +85,15 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        if (navController.getCurrentDestination().getId() == R.id.nav_home) {
+            super.onBackPressed(); // O padrão de comportamento do botão de voltar
+        } else {
+            navController.popBackStack(); // Retorna ao destino anterior
+        }
     }
 }

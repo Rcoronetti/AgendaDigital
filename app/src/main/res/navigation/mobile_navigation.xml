@@ -3,23 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_home"> <!-- Define o mural como página inicial -->
 
+    <!-- Home -->
     <fragment
         android:id="@+id/nav_home"
         android:name="com.coronetti.agendadigital.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" />
 
+    <!-- Mural de Avisos -->
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.coronetti.agendadigital.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_mural"
+        android:name="com.coronetti.agendadigital.ui.mural.MuralFragment"
+        android:label="Mural de Avisos"
+        tools:layout="@layout/fragment_mural" />
 
+    <!-- Tarefas -->
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.coronetti.agendadigital.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_tarefas"
+        android:name="com.coronetti.agendadigital.ui.tarefas.TarefasFragment"
+        android:label="Tarefas"
+        tools:layout="@layout/fragment_tarefas" />
+
+    <!-- Informações -->
+    <fragment
+        android:id="@+id/nav_informacoes"
+        android:name="com.coronetti.agendadigital.ui.informacoes.InformacoesFragment"
+        android:label="Informações"
+        tools:layout="@layout/fragment_informacoes" />
 </navigation>

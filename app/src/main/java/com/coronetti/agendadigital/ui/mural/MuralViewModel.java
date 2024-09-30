@@ -1,19 +1,19 @@
-package com.coronetti.agendadigital.ui.home;
+package com.coronetti.agendadigital.ui.mural;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class MuralViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public MuralViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Bem-vindo ao Agenda Digital!"); // Mensagem padrão
+        mText.setValue("Este é o Mural de Avisos");
     }
 
     public LiveData<String> getText() {
-        return mText; // Retorna o texto como LiveData
+        return mText;
     }
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
@@ -6,15 +5,29 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home" />  <!-- Adicionando a entrada Home -->
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_comunicacao"
+            android:icon="@drawable/ic_menu_comunicacao"
+            android:title="@string/menu_comunicacao">
+            <menu>
+                <item
+                    android:id="@+id/nav_mural"
+                    android:icon="@drawable/ic_menu_mural"
+                    android:title="@string/menu_mural" />
+            </menu>
+        </item>
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_tarefas"
+            android:icon="@drawable/ic_menu_tarefas"
+            android:title="@string/menu_tarefas" />
+
+        <item
+            android:id="@+id/nav_informacoes"
+            android:icon="@drawable/ic_menu_informacoes"
+            android:title="@string/menu_informacoes" />
     </group>
 </menu>
