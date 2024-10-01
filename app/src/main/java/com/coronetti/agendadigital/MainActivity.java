@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Definindo as IDs para incluir a nova HomeFragment
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_comunicacao, R.id.nav_tarefas, R.id.nav_informacoes)
+                R.id.nav_mural, R.id.nav_tarefas, R.id.nav_informacoes)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -58,10 +58,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 // Aqui gerenciamos a navegação
                 int id = item.getItemId();
-                if (id == R.id.nav_home) {
-                    navController.navigate(R.id.nav_home); // Navegar para o HomeFragment
-                } else if (id == R.id.nav_mural) {
-                    navController.navigate(R.id.nav_mural); // Navegar para o MuralFragment
+                if (id == R.id.nav_mural) {
+                    navController.navigate(R.id.nav_mural); // Navegar para o Mural
                 } else if (id == R.id.nav_tarefas) {
                     navController.navigate(R.id.nav_tarefas); // Navegar para TarefasFragment
                 } else if (id == R.id.nav_informacoes) {
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        if (navController.getCurrentDestination().getId() == R.id.nav_home) {
+        if (navController.getCurrentDestination().getId() == R.id.nav_mural) {
             super.onBackPressed(); // O padrão de comportamento do botão de voltar
         } else {
             navController.popBackStack(); // Retorna ao destino anterior

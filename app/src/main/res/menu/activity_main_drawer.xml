@@ -4,21 +4,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_home"
-            android:title="@string/menu_home" />  <!-- Adicionando a entrada Home -->
-
-        <item
-            android:id="@+id/nav_comunicacao"
-            android:icon="@drawable/ic_menu_comunicacao"
-            android:title="@string/menu_comunicacao">
-            <menu>
-                <item
-                    android:id="@+id/nav_mural"
-                    android:icon="@drawable/ic_menu_mural"
-                    android:title="@string/menu_mural" />
-            </menu>
-        </item>
+            android:id="@+id/nav_mural"
+            android:icon="@drawable/ic_menu_mural"
+            android:title="@string/menu_mural" />
 
         <item
             android:id="@+id/nav_tarefas"
