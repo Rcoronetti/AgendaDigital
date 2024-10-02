@@ -12,4 +12,24 @@
     <string name="menu_informacoes">Informações</string>
     <string name="menu_mural">Mural de Avisos</string>
     <string name="menu_home">Home</string>
+    <string name="tipo_destinatario">Tipo de destinatário</string>
+    <string name="turma">Turma</string>
+    <string name="disciplinas">Disciplinas</string>
+
+
+
+    <string name="destinatario_aluno">Aluno(s)</string>
+    <string name="destinatario_pais">Pais(s)</string>
+    <string name="destinatario_professor">Professor(es)</string>
+
+    <string name="turma1">Turma A</string>
+    <string name="turma2">Turma B</string>
+    <string name="turma3">Turma C</string>
+
+    <string name="disciplina1">Matemática</string>
+    <string name="disciplina2">Português</string>
+    <string name="disciplina3">História</string>
+
+
+
 </resources>

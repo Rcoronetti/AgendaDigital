@@ -11,7 +11,13 @@
         <item
             android:id="@+id/nav_tarefas"
             android:icon="@drawable/ic_menu_tarefas"
-            android:title="@string/menu_tarefas" />
+            android:title="@string/menu_tarefas">
+            <menu>
+                <item
+                    android:id="@+id/nav_criacao_tarefas"
+                    android:title="Criação de Tarefas" />
+            </menu>
+        </item>
 
         <item
             android:id="@+id/nav_informacoes"

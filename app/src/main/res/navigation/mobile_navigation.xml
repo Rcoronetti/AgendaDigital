@@ -18,6 +18,13 @@
         android:label="Tarefas"
         tools:layout="@layout/fragment_tarefas" />
 
+    <!-- Criação de Tarefas -->
+    <fragment
+        android:id="@+id/nav_criacao_tarefas"
+        android:name="com.coronetti.agendadigital.ui.tarefas.criacaoTarefas.CriacaoTarefasFragment"
+        android:label="Criação de Tarefas"
+        tools:layout="@layout/fragment_criacao_tarefas" />
+
     <!-- Informações -->
     <fragment
         android:id="@+id/nav_informacoes"
