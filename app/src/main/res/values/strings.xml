@@ -16,6 +16,28 @@
     <string name="turma">Turma</string>
     <string name="disciplinas">Disciplinas</string>
 
+    <!-- Arrays para os Spinners -->
+    <string-array name="tipo_destinatario_array">
+        <item>Selecione o tipo de destinatário</item>
+        <item>Aluno(s)</item>
+        <item>Pais(s)</item>
+        <item>Professor(es)</item>
+    </string-array>
+
+    <string-array name="turmas_array">
+        <item>Selecione a turma</item>
+        <item>Turma A</item>
+        <item>Turma B</item>
+        <item>Turma C</item>
+    </string-array>
+
+    <string-array name="disciplinas_array">
+        <item>Selecione a disciplina</item>
+        <item>Matemática</item>
+        <item>Português</item>
+        <item>História</item>
+    </string-array>
+
 
 
     <string name="destinatario_aluno">Aluno(s)</string>

@@ -1,91 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="@android:color/background_light">
 
+    <!-- Título da Página -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Criação de Tarefas"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="24dp" />
 
+    <!-- Spinner Tipo de Destinatário -->
     <Spinner
         android:id="@+id/spinnerTipoDestinatario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/tipo_destinatario"
-        android:layout_marginBottom="16dp"/>
+        android:background="@drawable/spinner_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:dropDownVerticalOffset="10dp" />
 
+    <!-- Spinner Turma -->
     <Spinner
         android:id="@+id/spinnerTurma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/turma"
-        android:layout_marginBottom="16dp"/>
+        android:background="@drawable/spinner_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:dropDownVerticalOffset="10dp" />
 
+    <!-- Campo de Data -->
     <EditText
         android:id="@+id/editTextData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Data"
-        android:inputType="date"
+        android:hint="Selecione a Data"
+        android:focusable="false"
+        android:clickable="true"
         android:layout_marginBottom="16dp"/>
 
+
+    <!-- Spinner Disciplina -->
     <Spinner
         android:id="@+id/spinnerDisciplina"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/disciplinas"
-        android:layout_marginBottom="16dp"/>
+        android:background="@drawable/spinner_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
+    <!-- Campo Nome -->
     <EditText
         android:id="@+id/editTextNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome (para envio individual)"
-        android:layout_marginBottom="16dp"/>
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
+    <!-- Campo Título -->
     <EditText
         android:id="@+id/editTextTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Título"
-        android:layout_marginBottom="16dp"/>
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
+    <!-- Campo Descrição -->
     <EditText
         android:id="@+id/editTextDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Descrição"
-        android:inputType="textMultiLine"
-        android:minHeight="100dp"
-        android:layout_marginBottom="16dp"/>
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:minHeight="120dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="textMultiLine" />
 
+    <!-- Botões de Anexar e Enviar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="16dp">
 
+        <!-- Botão Anexar -->
         <ImageButton
             android:id="@+id/buttonAnexar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@android:drawable/ic_menu_upload"
             android:contentDescription="Anexar"
-            android:background="?attr/selectableItemBackground"
-            android:layout_marginEnd="8dp"/>
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="8dp"
+            app:tint="@android:color/holo_blue_dark" />
 
+        <!-- Botão Enviar -->
         <Button
             android:id="@+id/buttonEnviar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Enviar"/>
+            android:text="Enviar"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
+            android:padding="12dp"/>
     </LinearLayout>
 </LinearLayout>
