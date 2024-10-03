@@ -64,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
                     navController.navigate(R.id.nav_tarefas); // Navegar para TarefasFragment
                 } else if (id == R.id.nav_criacao_tarefas) {
                     navController.navigate(R.id.nav_criacao_tarefas); //Navegar para CriacaoTarefasFragment
-                } else if (id == R.id.nav_informacoes) {
+                }else if (id == R.id.nav_acompanhamento_tarefas) {
+                    navController.navigate(R.id.nav_acompanhamento_tarefas); //Navegar para AcompanhamentoTarefasFragment
+                }else if (id == R.id.nav_informacoes) {
                     navController.navigate(R.id.nav_informacoes); // Navegar para InformacoesFragment
                 }
                 binding.drawerLayout.closeDrawers(); // Fechar o Navigation Drawer
