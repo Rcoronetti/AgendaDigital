@@ -1,57 +1,95 @@
-<!-- item_tarefa.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="8dp"
+    android:elevation="2dp"
+    android:layout_margin="8dp">
 
-    <!-- Título da Tarefa -->
+    <!-- Cabeçalho da Tarefa -->
     <TextView
         android:id="@+id/textTitulo"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Título"
-        android:textSize="16sp"
-        android:textColor="#000" />
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
 
-    <!-- Turma -->
-    <TextView
-        android:id="@+id/textTurma"
-        android:layout_width="0dp"
+    <!-- Turma e Data -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Turma"
-        android:textSize="16sp"
-        android:textColor="#000" />
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
 
-    <!-- Data -->
-    <TextView
-        android:id="@+id/textData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Data"
-        android:textSize="16sp"
-        android:textColor="#000" />
+        <TextView
+            android:id="@+id/textTurma"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Turma"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+    </LinearLayout>
 
     <!-- Disciplina -->
     <TextView
         android:id="@+id/textDisciplina"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Disciplina"
-        android:textSize="16sp"
-        android:textColor="#000" />
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="4dp"/>
 
-    <!-- Status -->
-    <TextView
-        android:id="@+id/textStatus"
-        android:layout_width="0dp"
+    <!-- Status e Botões de Ação -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Status"
-        android:textSize="16sp"
-        android:textColor="#000" />
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Status"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="14sp"
+            android:gravity="start" />
+
+        <!-- Botão de Editar Status -->
+        <Button
+            android:id="@+id/buttonStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:textSize="12sp"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:textColor="@android:color/white" />
+
+        <!-- Botão de Excluir -->
+        <Button
+            android:id="@+id/buttonExcluir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Excluir"
+            android:textSize="12sp"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 </LinearLayout>
