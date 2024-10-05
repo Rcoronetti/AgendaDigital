@@ -1,6 +1,8 @@
 package com.coronetti.agendadigital.ui.tarefas;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,8 +40,9 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
         TextView textData = convertView.findViewById(R.id.textData);
         TextView textDisciplina = convertView.findViewById(R.id.textDisciplina);
         TextView textStatus = convertView.findViewById(R.id.textStatus);
-        Button buttonStatus = convertView.findViewById(R.id.buttonStatus);
         Button buttonExcluir = convertView.findViewById(R.id.buttonExcluir);
+        Button btnAlterarStatus = convertView.findViewById(R.id.btnAlterarStatus);
+
 
         // Define os valores para os TextViews
         textTitulo.setText(tarefa.getTitulo());
@@ -49,20 +52,29 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
         textStatus.setText(tarefa.getStatus());
 
         // Ação para editar o status
-        buttonStatus.setOnClickListener(new View.OnClickListener() {
+        btnAlterarStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tarefa.setStatus("Concluída");
-                notifyDataSetChanged(); // Atualiza a lista
-            }
-        });
+                // Exibe um AlertDialog para escolher o novo status
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Alterar Status");
 
-        // Ação para excluir a tarefa
-        buttonExcluir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tarefas.remove(position);
-                notifyDataSetChanged(); // Atualiza a lista
+                // Opções de status
+                String[] statusOptions = {"Em andamento", "Concluído", "Cancelada", "Encerrada"};
+
+                builder.setItems(statusOptions, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Atualiza o status da tarefa com a opção escolhida
+                        String novoStatus = statusOptions[which];
+                        tarefa.setStatus(novoStatus);
+                        textStatus.setText(novoStatus);
+
+
+                    }
+                });
+
+                builder.show();
             }
         });
 

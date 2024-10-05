@@ -73,12 +73,11 @@
 
         <!-- Botão de Editar Status -->
         <Button
-            android:id="@+id/buttonStatus"
+            android:id="@+id/btnAlterarStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Editar"
-            android:textSize="12sp"
-            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="Alterar Status"
+            android:backgroundTint="@android:color/holo_blue_dark"
             android:textColor="@android:color/white" />
 
         <!-- Botão de Excluir -->
