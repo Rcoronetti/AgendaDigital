@@ -51,6 +51,17 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
         textDisciplina.setText(tarefa.getDisciplina());
         textStatus.setText(tarefa.getStatus());
 
+        buttonExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Remover a tarefa da lista
+                tarefas.remove(position);
+                // Notifica o adapter da alteração
+                notifyDataSetChanged();
+            }
+        });
+
+
         // Ação para editar o status
         btnAlterarStatus.setOnClickListener(new View.OnClickListener() {
             @Override
