@@ -5,12 +5,16 @@ Esse app foi criado com o intuito de entender a criação de um app utilizando A
 ## Estrutura do Projeto
 
 A estrutura do projeto foi organizada em pacotes com base em suas funcionalidades, como segue:
+```plaintext
+com.coronetti.agendadigital
+├── ui 
+│   ├── tarefas 
+│   ├── criacaoTarefas: Contém a atividade e fragmento responsável pela criação de novas tarefas.
+│   │   └── acompanhamentoTarefas: Gerencia a visualização e manipulação das tarefas existentes.
+├── model: Contém a classe Tarefa, que representa os dados da tarefa.
+└── utils: Funções auxiliares e constantes.
+```
 
-```com.coronetti.agendadigital ├── ui 
-│├── tarefas 
-│├── criacaoTarefas: Contém a atividade e fragmento responsável pela criação de novas tarefas.
-││ └── acompanhamentoTarefas: Gerencia a visualização e manipulação das tarefas existentes.
-├── model: Contém a classe Tarefa, que representa os dados da tarefa. └── utils: Funções auxiliares e constantes.```
 
 
 ## Desenvolvimento
