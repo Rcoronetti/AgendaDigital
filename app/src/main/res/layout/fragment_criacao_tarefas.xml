@@ -57,7 +57,7 @@
         android:padding="12dp"
         android:layout_marginBottom="16dp" />
 
-    <!-- Campo Nome -->
+   <!-- Campo Nome -->
     <EditText
         android:id="@+id/editTextNome"
         android:layout_width="match_parent"
