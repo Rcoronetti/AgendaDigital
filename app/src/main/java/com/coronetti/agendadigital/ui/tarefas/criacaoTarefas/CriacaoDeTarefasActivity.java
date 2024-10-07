@@ -6,6 +6,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.coronetti.agendadigital.R;
@@ -86,6 +88,15 @@ public class CriacaoDeTarefasActivity extends AppCompatActivity {
     }
 
     private void enviarTarefa(String tipoDestinatario, String turma, String disciplina, String data, String nome, String titulo, String descricao) {
-        // Implementar a lógica de envio de tarefa
+        Toast.makeText(this, "Tarefa criada com sucesso!", Toast.LENGTH_SHORT).show();
+
+        // Limpando os campos do formulário
+        spinnerTipoDestinatario.setSelection(0);
+        spinnerTurma.setSelection(0);
+        spinnerDisciplina.setSelection(0);
+        editTextData.setText("");
+        editTextNome.setText("");
+        editTextTitulo.setText("");
+        editTextDescricao.setText("");
     }
 }

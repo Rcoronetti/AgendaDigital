@@ -3,6 +3,7 @@ package com.coronetti.agendadigital.ui.tarefas;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.coronetti.agendadigital.R;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
@@ -43,7 +46,6 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
         Button buttonExcluir = convertView.findViewById(R.id.buttonExcluir);
         Button btnAlterarStatus = convertView.findViewById(R.id.btnAlterarStatus);
 
-
         // Define os valores para os TextViews
         textTitulo.setText(tarefa.getTitulo());
         textTurma.setText(tarefa.getTurma());
@@ -51,16 +53,28 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
         textDisciplina.setText(tarefa.getDisciplina());
         textStatus.setText(tarefa.getStatus());
 
+        // Ação para excluir a tarefa
         buttonExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Remover a tarefa da lista
-                tarefas.remove(position);
-                // Notifica o adapter da alteração
-                notifyDataSetChanged();
+                // Exibe um AlertDialog de confirmação
+                new AlertDialog.Builder(context)
+                        .setTitle("Excluir Tarefa")
+                        .setMessage("Você tem certeza que deseja excluir esta tarefa?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Remover a tarefa da lista
+                                tarefas.remove(position);
+                                // Notifica o adapter da alteração
+                                notifyDataSetChanged();
+                                // Atualiza o SharedPreferences
+                                atualizarSharedPreferences();
+                            }
+                        })
+                        .setNegativeButton("Não", null)
+                        .show();
             }
         });
-
 
         // Ação para editar o status
         btnAlterarStatus.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +94,6 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
                         String novoStatus = statusOptions[which];
                         tarefa.setStatus(novoStatus);
                         textStatus.setText(novoStatus);
-
-
                     }
                 });
 
@@ -92,4 +104,13 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
         return convertView;
     }
 
+    private void atualizarSharedPreferences() {
+        SharedPreferences prefs = context.getSharedPreferences("tarefas", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        // Salva a lista atualizada de tarefas no SharedPreferences
+        Gson gson = new Gson();
+        editor.putString("lista_tarefas", gson.toJson(tarefas));
+        editor.apply();
+    }
 }
