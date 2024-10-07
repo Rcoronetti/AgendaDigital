@@ -14,6 +14,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
+
 
 import com.coronetti.agendadigital.databinding.ActivityMainBinding;
 
@@ -30,13 +33,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
+
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
-                        .setAnchorView(R.id.fab).show();
+                // Criar um Intent para abrir o cliente de e-mail
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:")); // Somente apps de e-mail devem responder a este intent
+
+                // Definir destinatário, assunto e corpo do e-mail
+                String[] destinatarios = new String[]{"usuario@exemplo.com"}; // E-mails de teste
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, destinatarios);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Assunto do Email");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Corpo do email...");
+
+                // Verificar se existe algum cliente de e-mail instalado
+                if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(emailIntent);
+                } else {
+                    Snackbar.make(view, "Nenhum cliente de e-mail disponível", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null)
+                            .show();
+                }
             }
+
         });
 
         DrawerLayout drawer = binding.drawerLayout;
