@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Definindo as IDs para incluir a nova HomeFragment
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_mural, R.id.nav_tarefas, R.id.nav_informacoes)
+                R.id.nav_mural,R.id.nav_criacao_tarefas, R.id.nav_acompanhamento_tarefas, R.id.nav_informacoes)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -101,8 +101,6 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 if (id == R.id.nav_mural) {
                     navController.navigate(R.id.nav_mural); // Navegar para o Mural
-                } else if (id == R.id.nav_tarefas) {
-                    navController.navigate(R.id.nav_tarefas); // Navegar para TarefasFragment
                 } else if (id == R.id.nav_criacao_tarefas) {
                     navController.navigate(R.id.nav_criacao_tarefas); //Navegar para CriacaoTarefasFragment
                 } else if (id == R.id.nav_acompanhamento_tarefas) {
